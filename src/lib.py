@@ -177,11 +177,11 @@ def display_statistics(data, jupyter = True):
         with open(barplot_report_path, "w", encoding="utf-8") as report:
             report.write("\n![Visualization](Barplots.png)\n")
 
-        countplot_report_path = r'output/Countplot.md'
+        countplot_report_path = r'output/CountPlot.md'
         with open(countplot_report_path, "w", encoding="utf-8") as report:
             report.write("\n![Visualization](Countplot.png)\n")
 
-        table_report_path = r'output/Table_Stats.md'
+        table_report_path = r'output/Table.md'
         with open(table_report_path, "w", encoding="utf-8") as report:
             report.write("\n![Visualization](Table_Stats.png)\n")
 
