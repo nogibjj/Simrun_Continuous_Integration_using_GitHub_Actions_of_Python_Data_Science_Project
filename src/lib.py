@@ -168,6 +168,9 @@ def display_statistics(data, jupyter = True):
         bar_visualization_path = 'output/Barplots.png'
         count_visualization_path = 'output/Countplot.png'
         table_visualization_path = 'output/Table_Stats.png'
+        plt.savefig(bar_visualization_path)
+        plt.savefig(count_visualization_path)
+        plt.savefig(table_visualization_path)
 
 
 if __name__ == "__main__":
