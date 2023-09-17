@@ -1,4 +1,4 @@
-from main import computation
+from src.python_script import computation
 
 import pandas as pd
 import numpy as np
