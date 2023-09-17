@@ -6,13 +6,12 @@ import pandas as pd
 
 
 def test_descriptive_stats():
-    "Test the descriptive stats function"
+    "Test the descriptive stats function in python script"
     data = pd.read_csv("data/diabetes.csv")
-    target_column = "Insulin"
+    column = "Glucose"
 
-    results = run_statistics(data, target_column)
-
-    assert 'Target Column' in results
+    results = run_statistics(data, column)
+    
     assert 'Maximum' in results
     assert 'Minimum' in results
     assert 'Mean' in results

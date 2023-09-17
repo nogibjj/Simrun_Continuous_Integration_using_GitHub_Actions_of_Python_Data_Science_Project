@@ -131,7 +131,7 @@ def visualize_dataset(data, jupyter: bool=False):
     # Display the plots
     plt.show()
 
-def display_statistics(data):
+def display_statistics(data, jupyter = True):
     """Displays statistics for Glucose, Insulin, and BMI (mean, max, min, median, std_dev).
 
     Parameters:
@@ -179,11 +179,6 @@ def display_statistics(data):
             report.write(f'Median: {round(median, 3)} \n \n \n')
             report.write(f'Standard Deviation: {round(stand_dev, 3)} \n \n \n')
             report.write("\n![Visualization](visualization.png)\n")
-
-
-    if not jupyter:
-        visualization_path = 'output/visualization_hist.png'
-        plt.savefig(visualization_path)  # save png
 
 
 if __name__ == "__main__":
