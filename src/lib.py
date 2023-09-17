@@ -172,6 +172,18 @@ def display_statistics(data, jupyter = True):
         plt.savefig(count_visualization_path)
         plt.savefig(table_visualization_path)
 
+        # Save generated report
+        barplot_report_path = r'output/Barplots.md'
+        with open(barplot_report_path, "w", encoding="utf-8") as report:
+            report.write("\n![Visualization](Barplots.png)\n")
+
+        countplot_report_path = r'output/Countplot.md'
+        with open(countplot_report_path, "w", encoding="utf-8") as report:
+            report.write("\n![Visualization](Countplot.png)\n")
+
+        table_report_path = r'output/Table_Stats.md'
+        with open(table_report_path, "w", encoding="utf-8") as report:
+            report.write("\n![Visualization](Table_Stats.png)\n")
 
 if __name__ == "__main__":
     data = pd.read_csv("data/diabetes.csv")
