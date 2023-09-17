@@ -162,23 +162,12 @@ def display_statistics(data, jupyter = True):
     print(stats_df.to_string(index=True, header=True))
 
     if jupyter:
-        plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
-    else:
-        plt.legend(loc='best')
-
-    plt.show()
-    visualization_path = 'output/visualization.png'
-
+        print("Visualization of Diabetes Dataset")
+        
     if not jupyter:
-        plt.savefig(visualization_path)  # save png
-
-        # Save generated report
-        summary_report_path = r'output/generated_report.md'
-        with open(summary_report_path, "w", encoding="utf-8") as report:
-            report.write(f'Mean: {round(mean, 3)} \n \n \n')
-            report.write(f'Median: {round(median, 3)} \n \n \n')
-            report.write(f'Standard Deviation: {round(stand_dev, 3)} \n \n \n')
-            report.write("\n![Visualization](visualization.png)\n")
+        bar_visualization_path = 'output/Barplots.png'
+        count_visualization_path = 'output/Countplot.png'
+        table_visualization_path = 'output/Table_Stats.png'
 
 
 if __name__ == "__main__":
