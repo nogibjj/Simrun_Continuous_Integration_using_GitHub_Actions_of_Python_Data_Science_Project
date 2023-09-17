@@ -73,13 +73,13 @@ def get_std_dev(data,column):
     return std_dev_value
 
 
-def visualize_dataset(data, outcome_var: str, target_var: str, jupyter: bool=False):
+def visualize_dataset(data, jupyter: bool=False):
     """Visualizes the data and their specified columns. Replaces NAN values for mean or median. Creates a heatmap of 
     predictor variable correlations.Created a scatter plot with a line of best fit for each predictor variable. Includes legend
      with mean,median, maximum, minimum, and standard deviation """
-
     # Drop the null values
     removed_NaN_data = data[['Glucose','Insulin','BMI']].replace(0,np.NaN)
+    removed_NaN_data['Outcome'] = data['Outcome']
     null_values_list = removed_NaN_data.isnull().sum()
     removed_NaN_data['Glucose'].fillna(removed_NaN_data['Glucose'].mean(), inplace = True)
     removed_NaN_data['Insulin'].fillna(removed_NaN_data['Insulin'].median(), inplace = True)
@@ -92,83 +92,74 @@ def visualize_dataset(data, outcome_var: str, target_var: str, jupyter: bool=Fal
     plt.title("Count Plot of Diabetes Predictors Data Types")
     plt.show()
 
-    # Glucose Scatter Plot
-    glucose_fig = plt.figure(figsize=(10, 6))
-    glucose_scatter = plt.scatter(
-    removed_NaN_data["Glucose"],
-    removed_NaN_data["Outcome"],
-    alpha=0.7)
-    glucose_scatter.set_title("Glucose vs. Is Diabetic?")
-    glucose_scatter.set_xlabel("Glucose(mg/dL)")
-    glucose_scatter.set_ylabel("Diabetes")
+    # Data for the first plot
+    categories1 = removed_NaN_data['Glucose']
+    values1 = removed_NaN_data['Outcome']
 
-    # BMI Scatter Plot
-    BMI_fig = plt.figure(figsize=(10, 6))
-    BMI_scatter = plt.scatter(
-    removed_NaN_data["BMI"],
-    removed_NaN_data["Outcome"],
-    alpha=0.7)
-    BMI_scatter.set_title("BMI vs. Is Diabetic?")
-    BMI_scatter.set_xlabel("BMI(kg/m^2)")
-    BMI_scatter.set_ylabel("Diabetes")
+    # Data for the second plot
+    categories2 = removed_NaN_data['BMI']
+    values2 = removed_NaN_data['Outcome']
 
-    # Insulin Scatter Plot
-    Insulin_fig = plt.figure(figsize=(10, 6))
-    Insulin_scatter = plt.scatter(
-    removed_NaN_data["Insulin"],
-    removed_NaN_data["Outcome"],
-    alpha=0.7)
-    Insulin_scatter.set_title("Insulin vs. Is Diabetic?")
-    Insulin_scatter.set_xlabel("Insulin(mu/mL)")
-    Insulin_scatter.set_ylabel("Diabetes")
+    # Data for the third plot
+    categories3 = removed_NaN_data['Insulin']
+    values3 = removed_NaN_data['Outcome']
 
-    # text on the plot for glucose
-    mean_g_value = get_mean(removed_NaN_data,"Glucose")
-    median_g_value = get_median(removed_NaN_data, "Glucose")
-    std_dev_g_value = get_std_dev(removed_NaN_data, "Glucose")
-    max_g_value = maximum(removed_NaN_data,"Glucose")
-    min_g_value = minimum(removed_NaN_data, "Glucose")
-    g_text = f"Mean Glucose:{mean_g_value}\nMedian Glucose: {median_g_value}\nStd Dev Glucose: {std_dev_g_value}\nMaximum Glucose: {max_g_value}\nMinimum Glucose: {min_g_value}"
-    plt.g_text(
-    removed_NaN_data["Glucose"].max() - 0.5,
-    removed_NaN_data["Diabetes"].max() - 20,
-    g_text,
-    bbox=dict(facecolor="white", alpha=0.7),
-    horizontalalignment="right",
-    verticalalignment="top",
-)
+    # Create subplots with 1 row and 3 columns
+    fig, axs = plt.subplots(1, 3, figsize=(15, 5))
 
-# text on plot for Insulin
-    mean_i_value = get_mean(removed_NaN_data,"Insulin")
-    median_i_value = get_median(removed_NaN_data, "Insulin")
-    std_dev_i_value = get_std_dev(removed_NaN_data, "Insulin")
-    max_i_value = maximum(removed_NaN_data,"Insulin")
-    min_i_value = minimum(removed_NaN_data, "Insulin")
-    i_text = f"Mean Insulin:{mean_i_value}\nMedian Insulin: {median_i_value}\nStd Dev Insulin: {std_dev_i_value}\nMaximum Insulin: {max_i_value}\nMinimum Insulin: {min_i_value}"
-    plt.i_text(
-    removed_NaN_data["Glucose"].max() - 0.5,
-    removed_NaN_data["Diabetes"].max() - 20,
-    i_text,
-    bbox=dict(facecolor="white", alpha=0.7),
-    horizontalalignment="right",
-    verticalalignment="top",
-)
+    # Plot 1
+    axs[0].bar(categories1, values1, color='skyblue')
+    axs[0].set_xlabel('Glucose(mg/dL)')
+    axs[0].set_ylabel('Diabetes')
+    axs[0].set_title('Glucose vs. Is Diabetic?')
 
-#text on plot for BMI
-    mean_b_value = get_mean(removed_NaN_data,"BMI")
-    median_b_value = get_median(removed_NaN_data, "BMI")
-    std_dev_b_value = get_std_dev(removed_NaN_data, "BMI")
-    max_b_value = maximum(removed_NaN_data,"BMI")
-    min_b_value = minimum(removed_NaN_data, "BMI")
-    b_text = f"Mean BMI:{mean_b_value}\nMedian BMI: {median_b_value}\nStd Dev BMI: {std_dev_b_value}\nMaximum BMI: {max_b_value}\nMinimum BMI: {min_b_value}"
-    plt.b_text(
-    removed_NaN_data["BMI"].max() - 0.5,
-    removed_NaN_data["Diabetes"].max() - 20,
-    b_text,
-    bbox=dict(facecolor="white", alpha=0.7),
-    horizontalalignment="right",
-    verticalalignment="top",
-)
+    # Plot 2
+    axs[1].bar(categories2, values2, color='lightgreen')
+    axs[1].set_xlabel('BMI (kg/m^2)')
+    axs[1].set_ylabel('Diabetes')
+    axs[1].set_title('BMI vs. Is Diabetic?')
+
+    # Plot 3
+    axs[2].bar(categories3, values3, color='lightcoral')
+    axs[2].set_xlabel('Insulin (mu/ml)')
+    axs[2].set_ylabel('Diabetes')
+    axs[2].set_title('Insulin vs. Is Diabetic?')
+
+    # Adjust layout to prevent overlapping
+    plt.tight_layout()
+
+    # Display the plots
+    plt.show()
+
+def display_statistics(data):
+    """Displays statistics for Glucose, Insulin, and BMI (mean, max, min, median, std_dev).
+
+    Parameters:
+        data (pd.DataFrame): The DataFrame containing the data.
+    """
+    columns_of_interest = ['Glucose', 'Insulin', 'BMI']
+    statistics = ['Mean', 'Median', 'Std Dev', 'Max', 'Min']
+
+    # Create a dictionary to hold the statistics for each column
+    stats_dict = {}
+
+    for column_of_interest in columns_of_interest:
+        mean_value = get_mean(data, column_of_interest)
+        median_value = get_median(data, column_of_interest)
+        std_dev_value = get_std_dev(data, column_of_interest)
+        max_value = maximum(data, column_of_interest)
+        min_value = minimum(data, column_of_interest)
+
+        stats_dict[column_of_interest] = [mean_value, median_value, std_dev_value, max_value, min_value]
+
+    # Create a DataFrame from the dictionary
+    stats_df = pd.DataFrame(stats_dict, index=statistics)
+
+    # Set the display width to make the table visually larger
+    pd.set_option('display.width', 1000)
+
+    # Print the DataFrame as a table without grid lines
+    print(stats_df.to_string(index=True, header=True))
 
     if jupyter:
         plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
@@ -197,13 +188,12 @@ def visualize_dataset(data, outcome_var: str, target_var: str, jupyter: bool=Fal
 
 if __name__ == "__main__":
     data = pd.read_csv("data/diabetes.csv")
-    TARGET_COLUMN = "Insulin"
+    column = data["Glucose"]
 
-    print('Target Column: ', 'TARGET_COLUMN')
-    print('Maximum Value: ', maximum(data, TARGET_COLUMN))
-    print('Minimum Value: ', minumum(data, TARGET_COLUMN))
-    print('Mean: ', get_mean(data, TARGET_COLUMN))
-    print('Median: ', get_median(data, TARGET_COLUMN))
-    print("Standard Deviation: ", get_std_dev(data, TARGET_COLUMN))
+    print('Maximum Value: ', maximum(data, column))
+    print('Minimum Value: ', miniumum(data, column))
+    print('Mean: ', get_mean(data, column))
+    print('Median: ', get_median(data, column))
+    print("Standard Deviation: ", get_std_dev(data, column))
 
-    visualize_dataset(data, "petal_width", TARGET_COLUMN, "species", jupyter=False)
+    visualize_dataset(data, jupyter=False)

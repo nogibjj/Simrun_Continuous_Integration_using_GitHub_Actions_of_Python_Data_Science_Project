@@ -7,71 +7,83 @@ from src.lib import get_mean, get_median, get_std_dev, maximum, minimum, visuali
 
 
 def test_get_mean():
-    """Test function for return_25th_quantile"""
-    data = pd.read_csv("data/iris_data.csv")
-    target_column = 'sepal_width'
-
-    res =  return_25th_quantile(data, target_column)
+    """Test function for the get_mean"""
+    data = pd.read_csv("data/diabetes.csv")
+    column_g = data["Glucose"]
+    result_g =  get_mean(data, column_g)
 
     # hand calculations
-    data = data.sort_values(by=target_column)
-    quan_25th = data.iloc[floor(data.shape[0] / 4)][target_column]
+    actual_mean_g = sum(data[column_g]) / len(data[column_g])
 
-    assert res == quan_25th
-
-
-def test_return_mean():
-    """Test function for return_mean"""
-    data = pd.read_csv("data/iris_data.csv")
-    target_column = 'sepal_width'
-
-    # hand calculation
-    expected_mean_a = sum(data[target_column]) / len(data[target_column])
-
-    # function calculation
-    calculated_mean_a = return_mean(data, target_column)
-
-    # Check if the calculated mean matches the expected mean
-    assert round(calculated_mean_a) == round(expected_mean_a)
+    # assert the test
+    assert round(result_g) == round(actual_mean_g)
+    
 
 
 def test_return_std_dev():
-    """Test function for return_std_dev"""
-    data = {'A': [1, 2, 3, 4, 5]}
-    data = pd.DataFrame(data)
+    """Test function for the get_std_dev"""
+    data = pd.read_csv("data/diabetes.csv")
+    column_g = data["Glucose"]
+    result = get_std_dev(data, column_g)
+    actual_std_dev = 115.24400235133817
 
-    result = return_std_dev(data, 'A')
+    assert result == actual_std_dev
 
-    assert isinstance(result, float)
-    assert round(result, 2) == 1.58
-
-def test_return_median():
-    """Test function for return_median"""
-    data = pd.read_csv("data/iris_data.csv")
-    target_column = 'sepal_width'
+def test_get_median():
+    """Test function for the get_std_dev"""
+    data = pd.read_csv("data/diabetes.csv")
+    column_g = data["Glucose"]
 
     # hand calculation
-    expected_median = data[target_column].median()
+    sort_data = sorted(data[column_g])
+    n = len(sort_data)
+    if n % 2 == 0:
+        actual_median = (sort_data[n // 2 - 1] + sort_data[n // 2]) / 2
+        actual_median = round(actual_median, 10)
+    else:
+        actual_median = sort_data[n // 2]
+        actual_median = round(actual_median, 10)
+    
+    # calling the function
+    result = get_median(data, column_g)
 
-    # function calculation
-    calculated_median = return_median(data, target_column)
+    # Check the assert
+    assert result == actual_median
 
-    # Check if the calculated mean matches the expected mean
-    assert round(calculated_median) == round(expected_median)
+def test_maximum():
+    """Test function for the maximum"""
+    data = pd.read_csv("data/diabetes.csv")
+    column_g = data["Glucose"]
+    result = maximum(data, column_g)
+    actual_max = 846
+
+    assert result == actual_max
+
+def test_minimum():
+    """Test function for the minimum"""
+    data = pd.read_csv("data/diabetes.csv")
+    column_g = data["Glucose"]
+    result = minimum(data, column_g)
+    actual_min = 0
+
+    assert result == actual_min
 
 def test_visualize_dataset():
-    """Testing function for visualization"""
+    """Test function for visualization"""
 
-    data = pd.read_csv("data/iris_data.csv")
-
-
-    # Test if the function executes without errors
+    data = pd.read_csv("data/diabetes.csv")
+    # testing the call of visualize
     visualize_dataset(data, jupyter=False)
 
-    # Capture the plot output and check if it's not empty
+    # Is the plot empty?
     fig = plt.gcf()
     assert len(fig.axes) > 0
 
 
 if __name__ == '__main__':
     test_get_mean()
+    test_get_median()
+    test_get_std_dev()
+    test_maximum()
+    test_minimum()
+    test_visualize_dataset()

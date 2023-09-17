@@ -1,48 +1,29 @@
+"""This Script is used to deploy descriptive statistics on the diabetes dataset using functions already
+defined by the lib.py"""
+import sys
 import pandas as pd
-import numpy as np
-import seaborn as sns
-import matplotlib.pyplot as plt
 
+def run_statistics(data, column):
+    """Statistics for Diabetes dataset"""
 
+    result = {
+        'Maximum': lib.maximum(data,column),
+        'Minimum': lib.minimum(data,column),
+        'Mean': lib.get_mean(data,column),
+        'Median':lib.get_median(data,column),
+        'Standard Deviation': lib.get_std_dev(data,column)
+    }
 
+    return result
 
-#Loading Dataset
-wdi = pd.read_csv(
-    "https://media.githubusercontent.com/"
-    "media/nickeubank/MIDS_Data/"
-    "master/World_Development_Indicators/wdi_small_tidy_2015.csv"
-)
+def run_visualizations(data,column):
+    "Runs visualizations on the passed dataset"
+    lib.display_statistics(data)
+    lib.visualize_dataset(data_,jupyter=False
 
-#Taking the log of predictor variable(Gdp Per Capita) to determine relationship with outcome variable(Infant Mortality Rate)
-wdi["Log GDP Per Capita"] = np.log(wdi["GDP per capita (constant 2010 US$)"])
+if __name__ == '__main__':
+    data = pd.read_csv("data/diabetes.csv")
+    column = data["Glucose"]
 
-#Visualizing the data representation of the relationship between the two variables. 
-chart = (sns.scatterplot(wdi, x= "Log GDP Per Capita", y="Mortality rate, under-5 (per 1,000 live births)")
-         .set(title = "Analysis of Log Gdp Per Capita and Infant Mortality Rate")
-)
-
-#Display of the chart
-plt.show()
-
-#Function created to understand the descriptive statistices for the dataset of WorldBank Indicators
-def computation (dataframe):
-    average = dataframe["Log GDP Per Capita"].mean()
-    average = round(average,10)
-    medium = dataframe["Log GDP Per Capita"].median()
-    medium = round(medium,10)
-    std_dev = dataframe["Log GDP Per Capita"].std()
-    std_dev = round(std_dev,2)
-    return (average,medium,std_dev)
-
-#Calling the function
-computation(wdi)
-
-
-
-
-
-
-
-
-
-
+    results = run_statistics(data, column)
+    run_visualizations(data, column)
