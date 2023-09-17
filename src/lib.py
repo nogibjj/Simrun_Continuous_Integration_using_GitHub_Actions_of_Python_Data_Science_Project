@@ -92,6 +92,10 @@ def visualize_dataset(data, jupyter: bool=False):
     plt.title("Count Plot of Diabetes Predictors Data Types")
     plt.show()
 
+    count_visualization_path = 'output/Countplot.png'
+    plt.savefig(count_visualization_path)
+    plt.close()
+    
     # Data for the first plot
     categories1 = removed_NaN_data['Glucose']
     values1 = removed_NaN_data['Outcome']
@@ -130,6 +134,9 @@ def visualize_dataset(data, jupyter: bool=False):
 
     # Display the plots
     plt.show()
+    bar_visualization_path = 'output/Barplots.png'
+    plt.savefig(bar_visualization_path)
+    plt.close()
 
 def display_statistics(data, jupyter = True):
     """Displays statistics for Glucose, Insulin, and BMI (mean, max, min, median, std_dev).
@@ -158,20 +165,24 @@ def display_statistics(data, jupyter = True):
     # Set the display width to make the table visually larger
     pd.set_option('display.width', 1000)
 
-    # Print the DataFrame as a table without grid lines
-    print(stats_df.to_string(index=True, header=True))
+    fig, ax = plt.subplots(figsize=(8, 4))
+    ax.axis('off')
+    table = ax.table(cellText=stats_df.values,
+                     colLabels=stats_df.columns,
+                     cellLoc='center', loc='center')
+    table.auto_set_font_size(False)
+    table.set_fontsize(12)
+    table.scale(1, 1.5)  
+    plt.show()
+    plt.savefig('output/Table_Stats.png')
+    table_visualization_path = 'output/Table_Stats.png'
+    plt.close()
+
 
     if jupyter:
         print("Visualization of Diabetes Dataset")
         
     if not jupyter:
-        bar_visualization_path = 'output/Barplots.png'
-        count_visualization_path = 'output/Countplot.png'
-        table_visualization_path = 'output/Table_Stats.png'
-        plt.savefig(bar_visualization_path)
-        plt.savefig(count_visualization_path)
-        plt.savefig(table_visualization_path)
-
         # Save generated report
         barplot_report_path = r'output/Barplots.md'
         with open(barplot_report_path, "w", encoding="utf-8") as report:
