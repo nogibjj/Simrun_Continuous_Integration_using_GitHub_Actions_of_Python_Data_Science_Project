@@ -1,4 +1,4 @@
-# Data Analysis: Log GDP per Capita and Infant Mortality Rate
+# Data Analysis: Glucose, Insulin, and BMI as predictor variables on the outcome variable (whether a patient is Diabetic or not)
 
 [![Install](https://github.com/nogibjj/Simrun_Continuous_Integration_using_GitHub_Actions_of_Python_Data_Science_Project/actions/workflows/install.yml/badge.svg)](https://github.com/nogibjj/Simrun_Continuous_Integration_using_GitHub_Actions_of_Python_Data_Science_Project/actions/workflows/install.yml)[![Lint](https://github.com/nogibjj/Simrun_Continuous_Integration_using_GitHub_Actions_of_Python_Data_Science_Project/actions/workflows/lint.yml/badge.svg)](https://github.com/nogibjj/Simrun_Continuous_Integration_using_GitHub_Actions_of_Python_Data_Science_Project/actions/workflows/lint.yml)[![Format](https://github.com/nogibjj/Simrun_Continuous_Integration_using_GitHub_Actions_of_Python_Data_Science_Project/actions/workflows/format.yml/badge.svg)](https://github.com/nogibjj/Simrun_Continuous_Integration_using_GitHub_Actions_of_Python_Data_Science_Project/actions/workflows/format.yml)[![Test](https://github.com/nogibjj/Simrun_Continuous_Integration_using_GitHub_Actions_of_Python_Data_Science_Project/actions/workflows/test.yml/badge.svg)](https://github.com/nogibjj/Simrun_Continuous_Integration_using_GitHub_Actions_of_Python_Data_Science_Project/actions/workflows/test.yml)
 
@@ -18,19 +18,27 @@ In this script I am using many different functions to create a holistic understa
   6. visualize_dataset()
   7. display_statistics()
 
-### 2.
+### 2. Jupyter Notebook and Python Script.py
+The Jupyter notebook provides a visual representation of the code represented in our lib.py. The python script.py descriptive stats uses pandas and lib functions. I used nbval for pytest to ensure valdity of code. 
 
-### 3. 
+### 3. MakeFile and Workflows
+I created four different workflows to show each step of my Makefile. Install: runs the packages indicated in my requirements.txt
+Lint: Lints the code with Ruff to ensure correct python convention is held
+Format: Formats code with Python black formatter
+Test: Runs tests on notebook, script, and library
 
-### 4. Understanding the statistics functions
+### 4. Test_script.py and Test_lib.py
+Both these files containes tests for their respective python scripts. This ensures the code in functionally performs well.
+
+### 5. Understanding the statistics functions
 The objective is to analyze the relationship between Insulin, Glucose, BMI, and diabetes status (1 for diabetic, 0 for not diabetic). The functions defined calculate maximum, minimum, mean, median, and standard deviation for these key variables, aiding in a descriptive analysis of their association with diabetes.
 
-### 5. Understanding the Data Visualization functions
+### 6. Understanding the Data Visualization functions
 In this code, count plots offer a glimpse into the distribution of data types, especially the prevalence of diabetic and non-diabetic cases. Understanding this distribution is vital for addressing class imbalance and potential biases in a diabetes prediction scenario. On the other hand, bar plots help visually compare predictor variables like Glucose, Insulin, and BMI against diabetes status, revealing insights into their association with the outcome. These visualizations aid in identifying patterns and trends, such as higher Glucose levels being more common among diabetic patients. Overall, count and bar plots provide valuable visual context, enabling informed decisions in diabetes research and predictive modeling.
 
 ## Results
 
-! [After executing the code, the following descriptive statistics are for Glucose, Insulin, and BMI](https://user-images.githubusercontent.com/141798228/268531816-2f9924ab-d11c-422a-b509-bb3cb042a723.jpg)
+![After executing the code, the following descriptive statistics are for Glucose, Insulin, and BMI](https://user-images.githubusercontent.com/141798228/268531816-2f9924ab-d11c-422a-b509-bb3cb042a723.jpg)
 
 These statistics offer insights into the central tendency and spread of the diabetes patients, contributing to a better understanding of its distribution.
 
