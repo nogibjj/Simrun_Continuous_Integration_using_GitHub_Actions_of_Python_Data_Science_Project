@@ -9,7 +9,7 @@ from src.lib import get_mean, get_median, get_std_dev, maximum, minimum, visuali
 def test_get_mean():
     """Test function for the get_mean"""
     data = pd.read_csv("data/diabetes.csv")
-    column_g = data["Glucose"]
+    column_g = "Glucose"
     result_g =  get_mean(data, column_g)
 
     # hand calculations
@@ -20,10 +20,10 @@ def test_get_mean():
     
 
 
-def test_return_std_dev():
+def test_get_std_dev():
     """Test function for the get_std_dev"""
     data = pd.read_csv("data/diabetes.csv")
-    column_g = data["Glucose"]
+    column_g = "Glucose"
     result = get_std_dev(data, column_g)
     actual_std_dev = 115.24400235133817
 
@@ -32,7 +32,7 @@ def test_return_std_dev():
 def test_get_median():
     """Test function for the get_std_dev"""
     data = pd.read_csv("data/diabetes.csv")
-    column_g = data["Glucose"]
+    column_g = "Glucose"
 
     # hand calculation
     sort_data = sorted(data[column_g])
@@ -53,7 +53,7 @@ def test_get_median():
 def test_maximum():
     """Test function for the maximum"""
     data = pd.read_csv("data/diabetes.csv")
-    column_g = data["Glucose"]
+    column_g = "Glucose"
     result = maximum(data, column_g)
     actual_max = 846
 
@@ -62,7 +62,7 @@ def test_maximum():
 def test_minimum():
     """Test function for the minimum"""
     data = pd.read_csv("data/diabetes.csv")
-    column_g = data["Glucose"]
+    column_g = "Glucose"
     result = minimum(data, column_g)
     actual_min = 0
 
