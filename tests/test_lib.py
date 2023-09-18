@@ -25,7 +25,7 @@ def test_get_std_dev():
     data = pd.read_csv("data/diabetes.csv")
     column_g = "Glucose"
     result = get_std_dev(data, column_g)
-    actual_std_dev = 115.24400235133817
+    actual_std_dev = 31.97261819513622
 
     assert result == actual_std_dev
 
@@ -55,7 +55,7 @@ def test_maximum():
     data = pd.read_csv("data/diabetes.csv")
     column_g = "Glucose"
     result = maximum(data, column_g)
-    actual_max = 846
+    actual_max = 199
 
     assert result == actual_max
 
