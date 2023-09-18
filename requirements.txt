@@ -17,4 +17,9 @@ numpy==1.23.3
 scikit-learn==1.1.2
 matplotlib==3.6.0
 seaborn==0.12.0
+polars==0.19.2
+ruff==0.0.290
+nbval==0.10.0
+nbqa==1.7.0
+
 
