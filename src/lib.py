@@ -84,9 +84,12 @@ def visualize_dataset(data, jupyter: bool=False):
     # Drop the null values
     removed_NaN_data = data[['Glucose','Insulin','BMI']].replace(0,np.NaN)
     removed_NaN_data['Outcome'] = data['Outcome']
-    removed_NaN_data['Glucose'].fillna(removed_NaN_data['Glucose'].mean(), inplace = True)
-    removed_NaN_data['Insulin'].fillna(removed_NaN_data['Insulin'].median(), inplace = True)
-    removed_NaN_data['BMI'].fillna(removed_NaN_data['BMI'].median(), inplace = True)
+    removed_NaN_data['Glucose'].fillna(
+        removed_NaN_data['Glucose'].mean(), inplace = True)
+    removed_NaN_data['Insulin'].fillna(
+        removed_NaN_data['Insulin'].median(), inplace = True)
+    removed_NaN_data['BMI'].fillna(
+        removed_NaN_data['BMI'].median(), inplace = True)
 
     # Creating a countplot based on datatype
     sns.countplot(y=data.dtypes,data=removed_NaN_data)
@@ -94,7 +97,7 @@ def visualize_dataset(data, jupyter: bool=False):
     plt.ylabel("data types of diabetes predictors")
     plt.title("Count Plot of Diabetes Predictors Data Types")
     plt.show()
-    sys.path.append("/workspaces/Simrun_Continuous_Integration_using_GitHub_Actions_of_Python_Data_Science_Project")
+    #sys.path.append("/workspaces/Simrun_Continuous_Integration_using_GitHub_Actions_of_Python_Data_Science_Project")
     count_visualization_path = 'output/Countplot.png'
     plt.savefig(count_visualization_path)
     plt.close()
@@ -142,7 +145,8 @@ def visualize_dataset(data, jupyter: bool=False):
     plt.close()
 
 def display_statistics(data, jupyter = True):
-    """Displays statistics for Glucose, Insulin, and BMI (mean, max, min, median, std_dev).
+    """Displays statistics for Glucose, Insulin, and BMI 
+    (mean, max, min, median, std_dev).
 
     Parameters:
         data (pd.DataFrame): The DataFrame containing the data.
@@ -160,7 +164,8 @@ def display_statistics(data, jupyter = True):
         max_value = maximum(data, column_of_interest)
         min_value = minimum(data, column_of_interest)
 
-        stats_dict[column_of_interest] = [mean_value, median_value, std_dev_value, max_value, min_value]
+        stats_dict[column_of_interest] = [mean_value,
+        median_value, std_dev_value, max_value, min_value]
 
     # Create a DataFrame from the dictionary
     stats_df = pd.DataFrame(stats_dict, index=statistics)
