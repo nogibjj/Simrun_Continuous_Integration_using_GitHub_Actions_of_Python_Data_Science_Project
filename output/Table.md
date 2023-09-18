@@ -1,3 +1,3 @@
-![Visualization](Table_Stats.png)
+![Visualization](Table_Stats.jpg)
 
 
