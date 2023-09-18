@@ -198,7 +198,7 @@ def display_statistics(data, jupyter = True):
 
 if __name__ == "__main__":
     data = pd.read_csv("data/diabetes.csv")
-    column = data["Glucose"]
+    column = "Glucose"
 
     print('Maximum Value: ', maximum(data, column))
     print('Minimum Value: ', miniumum(data, column))
