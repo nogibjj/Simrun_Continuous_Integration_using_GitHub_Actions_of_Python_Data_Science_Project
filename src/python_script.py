@@ -1,6 +1,7 @@
-"""This Script is used to deploy descriptive statistics on the diabetes dataset using functions already
+"""This Script is used to deploy descriptive statistics
+on the diabetes dataset using functions already
 defined by the lib.py"""
-import sys
+import lib
 import pandas as pd
 
 def run_statistics(data, column):

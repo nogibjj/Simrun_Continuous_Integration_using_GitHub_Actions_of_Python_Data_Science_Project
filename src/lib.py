@@ -74,19 +74,22 @@ def get_std_dev(data,column):
 
 
 def visualize_dataset(data, jupyter: bool=False):
-    """Visualizes the data and their specified columns. Replaces NAN values for mean or median. Creates a heatmap of 
-    predictor variable correlations.Created a scatter plot with a line of best fit for each predictor variable. Includes legend
+    """Visualizes the data and their specified columns. 
+    Replaces NAN values for mean or median.
+    Creates a heatmap of 
+    predictor variable correlations.
+    Created a scatter plot with a line of best fit for each predictor 
+    variable. Includes legend
      with mean,median, maximum, minimum, and standard deviation """
     # Drop the null values
     removed_NaN_data = data[['Glucose','Insulin','BMI']].replace(0,np.NaN)
     removed_NaN_data['Outcome'] = data['Outcome']
-    null_values_list = removed_NaN_data.isnull().sum()
     removed_NaN_data['Glucose'].fillna(removed_NaN_data['Glucose'].mean(), inplace = True)
     removed_NaN_data['Insulin'].fillna(removed_NaN_data['Insulin'].median(), inplace = True)
     removed_NaN_data['BMI'].fillna(removed_NaN_data['BMI'].median(), inplace = True)
 
     # Creating a countplot based on datatype
-    diabetes_count_plot = sns.countplot(y=data.dtypes,data=removed_NaN_data)
+    sns.countplot(y=data.dtypes,data=removed_NaN_data)
     plt.xlabel("data type count of diabetes predictors")
     plt.ylabel("data types of diabetes predictors")
     plt.title("Count Plot of Diabetes Predictors Data Types")
@@ -175,7 +178,7 @@ def display_statistics(data, jupyter = True):
     table.scale(1, 1.5)  
     plt.show()
     plt.savefig('output/Table_Stats.png')
-    table_visualization_path = 'output/Table_Stats.png'
+    # table_visualization_path = 'output/Table_Stats.png'
     plt.close()
 
 
@@ -201,7 +204,7 @@ if __name__ == "__main__":
     column = "Glucose"
 
     print('Maximum Value: ', maximum(data, column))
-    print('Minimum Value: ', miniumum(data, column))
+    print('Minimum Value: ', minimum(data, column))
     print('Mean: ', get_mean(data, column))
     print('Median: ', get_median(data, column))
     print("Standard Deviation: ", get_std_dev(data, column))
