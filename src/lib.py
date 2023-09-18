@@ -91,7 +91,7 @@ def visualize_dataset(data, jupyter: bool=False):
     plt.ylabel("data types of diabetes predictors")
     plt.title("Count Plot of Diabetes Predictors Data Types")
     plt.show()
-
+    sys.path.append("/workspaces/Simrun_Continuous_Integration_using_GitHub_Actions_of_Python_Data_Science_Project")
     count_visualization_path = 'output/Countplot.png'
     plt.savefig(count_visualization_path)
     plt.close()
