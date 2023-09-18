@@ -194,7 +194,7 @@ def display_statistics(data, jupyter = True):
 
         table_report_path = r'output/Table.md'
         with open(table_report_path, "w", encoding="utf-8") as report:
-            report.write("\n![Visualization](Table_Stats.jpg)\n")
+            report.write("\n![Visualization](Table_Stats.png)\n")
 
 if __name__ == "__main__":
     data = pd.read_csv("data/diabetes.csv")
