@@ -20,7 +20,7 @@ def run_statistics(data, column):
 def run_visualizations(data,column):
     "Runs visualizations on the passed dataset"
     lib.display_statistics(data)
-    lib.visualize_dataset(data_,jupyter=False)
+    lib.visualize_dataset(data,jupyter=False)
 
 if __name__ == '__main__':
     data = pd.read_csv("diabetes.csv")
