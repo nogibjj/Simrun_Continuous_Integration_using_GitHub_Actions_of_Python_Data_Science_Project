@@ -13,5 +13,8 @@ format:
 lint:
 	nbqa ruff src/*.ipynb
 	ruff check src/*.py
+
+deploy:
+	#deploy goes here
 		
-all: install lint test format
+all: install lint deploy test format
