@@ -1,6 +1,6 @@
 # Data Analysis: Log GDP per Capita and Infant Mortality Rate
 
-[![GitHub Actions Workflow](https://github.com/simrunsharma/MiniProjectTemplate/actions/workflows/main.yml/badge.svg)](https://github.com/simrunsharma/MiniProjectTemplate/actions/workflows/main.yml)
+[![Install](https://github.com/nogibjj/Simrun_Continuous_Integration_using_GitHub_Actions_of_Python_Data_Science_Project/actions/workflows/install.yml/badge.svg)](https://github.com/nogibjj/Simrun_Continuous_Integration_using_GitHub_Actions_of_Python_Data_Science_Project/actions/workflows/install.yml)[![Lint](https://github.com/nogibjj/Simrun_Continuous_Integration_using_GitHub_Actions_of_Python_Data_Science_Project/actions/workflows/lint.yml/badge.svg)](https://github.com/nogibjj/Simrun_Continuous_Integration_using_GitHub_Actions_of_Python_Data_Science_Project/actions/workflows/lint.yml[![Test](https://github.com/nogibjj/Simrun_Continuous_Integration_using_GitHub_Actions_of_Python_Data_Science_Project/actions/workflows/test.yml/badge.svg)](https://github.com/nogibjj/Simrun_Continuous_Integration_using_GitHub_Actions_of_Python_Data_Science_Project/actions/workflows/test.yml)[![Format](https://github.com/nogibjj/Simrun_Continuous_Integration_using_GitHub_Actions_of_Python_Data_Science_Project/actions/workflows/format.yml/badge.svg)](https://github.com/nogibjj/Simrun_Continuous_Integration_using_GitHub_Actions_of_Python_Data_Science_Project/actions/workflows/format.yml)
 
 ## Data Source
 
