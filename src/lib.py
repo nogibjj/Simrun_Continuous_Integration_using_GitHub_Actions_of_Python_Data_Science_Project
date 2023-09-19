@@ -79,17 +79,23 @@ def visualize_dataset(data, jupyter: bool = False):
     Replaces NAN values for mean or median.
     Creates a heatmap of
     predictor variable correlations.
-    Created a scatter plot with a line of best fit for each predictor
+    Created a scatter plot with a line of 
+    best fit for each predictor
     variable. Includes legend
      with mean,median, maximum, minimum, and standard deviation"""
     # Drop the null values
-    removed_NaN_data = data[["Glucose", "Insulin", "BMI"]].replace(0, np.NaN)
+    removed_NaN_data = data[["Glucose", "Insulin",
+                             "BMI"]].replace(0, np.NaN)
     removed_NaN_data["Outcome"] = data["Outcome"]
-    removed_NaN_data["Glucose"].fillna(removed_NaN_data["Glucose"].mean(), inplace=True)
+    removed_NaN_data["Glucose"].fillna(
+        removed_NaN_data["Glucose"].mean(),
+        inplace=True)
     removed_NaN_data["Insulin"].fillna(
-        removed_NaN_data["Insulin"].median(), inplace=True
-    )
-    removed_NaN_data["BMI"].fillna(removed_NaN_data["BMI"].median(), inplace=True)
+        removed_NaN_data["Insulin"].median(),
+        inplace=True)
+    removed_NaN_data["BMI"].fillna(
+        removed_NaN_data["BMI"].median(),
+    inplace=True)
 
     # Creating a countplot based on datatype
     sns.countplot(y=data.dtypes, data=removed_NaN_data)
@@ -97,7 +103,8 @@ def visualize_dataset(data, jupyter: bool = False):
     plt.ylabel("data types of diabetes predictors")
     plt.title("Count Plot of Diabetes Predictors Data Types")
     plt.show()
-    # sys.path.append("/workspaces/Simrun_Continuous_Integration_using_GitHub_Actions_of_Python_Data_Science_Project")
+    # sys.path.append("/workspaces/Simrun_Continuous_Integration_using
+    _GitHub_Actions_of_Python_Data_Science_Project")
     # count_visualization_path = 'output/Countplot.png'
     # plt.savefig(count_visualization_path)
     # plt.close()
