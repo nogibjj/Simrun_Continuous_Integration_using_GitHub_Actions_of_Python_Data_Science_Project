@@ -15,8 +15,6 @@ jobs:
         run: make install
       - name: format
         run: make format
-      - name: deploy
-        run: make deploy 
       - name: Run main script
         run: python lib.py
       - name: List files
