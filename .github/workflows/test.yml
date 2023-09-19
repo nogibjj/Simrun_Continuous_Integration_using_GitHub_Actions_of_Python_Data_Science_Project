@@ -18,7 +18,7 @@ jobs:
       - name: test
         run: make test
       - name: Run main script
-        run: python lib.py
+        run: python src/python_script.py
       - name: List files
         run: |
           pwd
