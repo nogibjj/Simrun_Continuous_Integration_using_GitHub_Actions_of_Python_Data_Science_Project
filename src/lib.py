@@ -85,11 +85,13 @@ def visualize_dataset(data, jupyter: bool = False):
     # Drop the null values
     removed_NaN_data = data[["Glucose", "Insulin", "BMI"]].replace(0, np.NaN)
     removed_NaN_data["Outcome"] = data["Outcome"]
-    removed_NaN_data["Glucose"].fillna(removed_NaN_data["Glucose"].mean(), inplace=True)
+    removed_NaN_data["Glucose"].fillna(
+        removed_NaN_data["Glucose"].mean(), inplace=True)
     removed_NaN_data["Insulin"].fillna(
         removed_NaN_data["Insulin"].median(), inplace=True
     )
-    removed_NaN_data["BMI"].fillna(removed_NaN_data["BMI"].median(), inplace=True)
+    removed_NaN_data["BMI"].fillna(
+        removed_NaN_data["BMI"].median(), inplace=True)
 
     # Creating a countplot based on datatype
     sns.countplot(y=data.dtypes, data=removed_NaN_data)
