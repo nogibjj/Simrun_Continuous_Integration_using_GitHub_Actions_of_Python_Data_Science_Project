@@ -23,7 +23,7 @@ def run_visualizations(data,column):
     lib.visualize_dataset(data,jupyter=False)
 
 if __name__ == '__main__':
-    data = pd.read_csv("diabetes.csv")
+    data = pd.read_csv("data/diabetes.csv")
     column = "Glucose"
 
     results = run_statistics(data, column)
