@@ -7,10 +7,10 @@ import matplotlib.pyplot as plt
 def maximum(data, column):
     """
         Input:
-            Data: Dataframe to calculate maximum
-            Column: Target column
+            data: Dataframe to calculate maximum
+            column: Target column
         Output: 
-            Return the maximum of the Target column
+            return the maximum of the Target column
     """
 
     max_value = data[column].max()
@@ -20,10 +20,10 @@ def maximum(data, column):
 def minimum(data, column):
     """
         Input:
-            Data: Dataframe to calculate minimum
-            Column: Target column
+            data: Dataframe to calculate minimum
+            column: Target column
         Output: 
-            Return the minimum of the Target column
+            return the minimum of the Target column
     """
 
     min_value = data[column].min()
@@ -34,10 +34,10 @@ def minimum(data, column):
 def get_mean(data,column):
     """
         Input:
-            Data: Dataframe to calculate mean
-            Column: Target column
+            data: Dataframe to calculate mean
+            column: Target column
         Output: 
-            Return the mean of the Target column
+            return the mean of the Target column
     """
 
     mean_value = data[column].mean()
@@ -48,10 +48,10 @@ def get_mean(data,column):
 def get_median(data,column):
     """
         Input:
-            Data: Dataframe to calculate median
-            Column: Target column
+            data: Dataframe to calculate median
+            column: Target column
         Output:
-            Return the median of the Target column
+            return the median of the Target column
     """
 
     median_value = data[column].median()
@@ -62,10 +62,10 @@ def get_median(data,column):
 def get_std_dev(data,column):
     """
         Input:
-            Data: Dataframe to calculate standard deviation
-            Column: Target column
+            data: Dataframe to calculate standard deviation
+            column: Target column
         Output:
-            Return the standard deviation of the Target column
+            return the standard deviation of the Target column
     """
 
     std_dev_value = data[column].std()
@@ -145,7 +145,7 @@ def visualize_dataset(data, jupyter: bool=False):
     #plt.close()
 
 def display_statistics(data, jupyter = True):
-    """Displays statistics for Glucose, Insulin, and BMI 
+    """displays statistics for Glucose, Insulin, and BMI 
     (mean, max, min, median, std_dev).
 
     Parameters:
