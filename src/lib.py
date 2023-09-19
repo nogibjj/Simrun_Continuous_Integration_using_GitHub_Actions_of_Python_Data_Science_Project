@@ -206,7 +206,6 @@ def display_statistics(data, jupyter = True):
             #report.write("\n![Visualization](Table_Stats.png)\n")
 
 if __name__ == "__main__":
-    data = pd.read_csv("data/diabetes.csv")
     column = "Glucose"
 
     print('Maximum Value: ', maximum(data, column))
