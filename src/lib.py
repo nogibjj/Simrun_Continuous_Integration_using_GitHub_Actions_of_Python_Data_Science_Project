@@ -103,9 +103,6 @@ def visualize_dataset(data, jupyter: bool = False):
 
     if not jupyter:
         plt.savefig(count_visualization_path)
-        full_report_path = r"output/full_report.md"
-        with open(full_report_path, "w", encoding="utf-8") as report:
-            report.write("\n![Visualization](Countplot.png)\n")
 
 
     # Data for the first plot
@@ -150,9 +147,6 @@ def visualize_dataset(data, jupyter: bool = False):
 
     if not jupyter:
         plt.savefig(bar_visualization_path)
-        full_report_path = r"output/full_report.md"
-        with open(full_report_path, "w", encoding="utf-8") as report:
-            report.write("\n![Bar_Visualization](Barplots.png)\n")
 
 
 def display_statistics(data, jupyter=True):
@@ -210,6 +204,8 @@ def display_statistics(data, jupyter=True):
         full_report_path = r"output/full_report.md"
         with open(full_report_path, "w", encoding="utf-8") as report:
             report.write("\n![table_Visualization](Table_Stats.png)\n")
+            report.write("\n![Bar_Visualization](Barplots.png)\n")
+            report.write("\n![Visualization](Countplot.png)\n")
 
     if jupyter:
         print("Visualization of Diabetes Dataset")
