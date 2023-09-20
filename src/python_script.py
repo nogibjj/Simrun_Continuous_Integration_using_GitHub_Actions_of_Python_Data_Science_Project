@@ -28,6 +28,6 @@ def run_visualizations(data, column):
 if __name__ == "__main__":
     data = pd.read_csv("data/diabetes.csv")
     column = "Glucose"
-
+    print("run")
     results = run_statistics(data, column)
     run_visualizations(data, column)

@@ -105,7 +105,6 @@ def visualize_dataset(data, jupyter: bool = False):
         plt.savefig(count_visualization_path)
         full_report_path = r"output/full_report.md"
         with open(full_report_path, "w", encoding="utf-8") as report:
-            report.write(f'Mean:()')
             report.write("\n![Visualization](Countplot.png)\n")
 
 
@@ -151,8 +150,8 @@ def visualize_dataset(data, jupyter: bool = False):
 
     if not jupyter:
         plt.savefig(bar_visualization_path)
-        barplot_report_path = r"output/Barplots.md"
-        with open(barplot_report_path, "w", encoding="utf-8") as report:
+        full_report_path = r"output/full_report.md"
+        with open(full_report_path, "w", encoding="utf-8") as report:
             report.write("\n![Visualization](Barplots.png)\n")
 
 
@@ -208,8 +207,8 @@ def display_statistics(data, jupyter=True):
 
     if not jupyter:
         plt.savefig(table_visualization_path)
-        table_report_path = r"output/Table.md"
-        with open(table_report_path, "w", encoding="utf-8") as report:
+        full_report_path = r"output/full_report.md"
+        with open(full_report_path, "w", encoding="utf-8") as report:
             report.write("\n![Visualization](Table_Stats.png)\n")
 
     if jupyter:
