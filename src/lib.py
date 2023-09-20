@@ -204,7 +204,7 @@ def display_statistics(data, jupyter=True):
     table_visualization_path = "output/Table_Stats.png"
 
     if not jupyter:
-        plt.savefig("output/Table_Stats.png")
+        plt.savefig(table_visualization_path)
         table_report_path = r"output/Table.md"
         with open(table_report_path, "w", encoding="utf-8") as report:
             report.write("\n![Visualization](Table_Stats.png)\n")
