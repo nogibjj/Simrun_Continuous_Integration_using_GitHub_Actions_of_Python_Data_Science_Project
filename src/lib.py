@@ -99,6 +99,7 @@ def visualize_dataset(data, jupyter: bool = False):
     plt.title("Count Plot of Diabetes Predictors Data Types")
     
     plt.show()
+    
 
     if not jupyter:
         count_visualization_path = "output/Count.png"
@@ -144,6 +145,7 @@ def visualize_dataset(data, jupyter: bool = False):
     # Display the plots
     plt.show()
     bar_visualization_path = "output/Barplots.png"
+    
 
     if not jupyter:
         plt.savefig(bar_visualization_path)
@@ -198,7 +200,7 @@ def display_statistics(data, jupyter=True):
     table.auto_set_font_size(False)
     table.set_fontsize(12)
     table.scale(1, 1.5)
-
+    plt.close()
     # stats_df.plot()
     # table_visualization_path = "output/Table_Stats.png"
 
