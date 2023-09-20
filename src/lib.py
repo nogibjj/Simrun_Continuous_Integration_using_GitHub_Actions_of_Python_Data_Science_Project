@@ -79,23 +79,18 @@ def visualize_dataset(data, jupyter: bool = False):
     Replaces NAN values for mean or median.
     Creates a heatmap of
     predictor variable correlations.
-    Created a scatter plot with a line of 
+    Created a scatter plot with a line of
     best fit for each predictor
     variable. Includes legend
      with mean,median, maximum, minimum, and standard deviation"""
     # Drop the null values
-    removed_NaN_data = data[["Glucose", "Insulin",
-                             "BMI"]].replace(0, np.NaN)
+    removed_NaN_data = data[["Glucose", "Insulin", "BMI"]].replace(0, np.NaN)
     removed_NaN_data["Outcome"] = data["Outcome"]
-    removed_NaN_data["Glucose"].fillna(
-        removed_NaN_data["Glucose"].mean(),
-        inplace=True)
+    removed_NaN_data["Glucose"].fillna(removed_NaN_data["Glucose"].mean(), inplace=True)
     removed_NaN_data["Insulin"].fillna(
-        removed_NaN_data["Insulin"].median(),
-        inplace=True)
-    removed_NaN_data["BMI"].fillna(
-        removed_NaN_data["BMI"].median(),
-    inplace=True)
+        removed_NaN_data["Insulin"].median(), inplace=True
+    )
+    removed_NaN_data["BMI"].fillna(removed_NaN_data["BMI"].median(), inplace=True)
 
     # Creating a countplot based on datatype
     sns.countplot(y=data.dtypes, data=removed_NaN_data)
@@ -103,9 +98,8 @@ def visualize_dataset(data, jupyter: bool = False):
     plt.ylabel("data types of diabetes predictors")
     plt.title("Count Plot of Diabetes Predictors Data Types")
     plt.show()
-    count_visualization_path = 'output/Countplot.png'
+    count_visualization_path = "output/Countplot.png"
     plt.savefig(count_visualization_path)
-    
 
     # Data for the first plot
     categories1 = removed_NaN_data["Glucose"]
@@ -145,9 +139,8 @@ def visualize_dataset(data, jupyter: bool = False):
 
     # Display the plots
     plt.show()
-    bar_visualization_path = 'output/Barplots.png'
+    bar_visualization_path = "output/Barplots.png"
     plt.savefig(bar_visualization_path)
-    
 
 
 def display_statistics(data, jupyter=True):
@@ -196,8 +189,8 @@ def display_statistics(data, jupyter=True):
     table.set_fontsize(12)
     table.scale(1, 1.5)
     plt.show()
-    plt.savefig('output/Table_Stats.png')
-    table_visualization_path = 'output/Table_Stats.png'
+    plt.savefig("output/Table_Stats.png")
+    table_visualization_path = "output/Table_Stats.png"
     plt.close()
 
     if jupyter:
@@ -205,18 +198,17 @@ def display_statistics(data, jupyter=True):
 
     if not jupyter:
         print("Visualization of Diabetes Dataset")
-        Save generated report
-        barplot_report_path = r'output/Barplots.md'
+        barplot_report_path = r"output/Barplots.md"
         with open(barplot_report_path, "w", encoding="utf-8") as report:
-        report.write("\n![Visualization](Barplots.png)\n")
+            report.write("\n![Visualization](Barplots.png)\n")
 
-        countplot_report_path = r'output/CountPlot.md'
+        countplot_report_path = r"output/CountPlot.md"
         with open(countplot_report_path, "w", encoding="utf-8") as report:
-        report.write("\n![Visualization](Countplot.png)\n")
+            report.write("\n![Visualization](Countplot.png)\n")
 
-        table_report_path = r'output/Table.md'
+        table_report_path = r"output/Table.md"
         with open(table_report_path, "w", encoding="utf-8") as report:
-        report.write("\n![Visualization](Table_Stats.png)\n")
+            report.write("\n![Visualization](Table_Stats.png)\n")
 
 
 if __name__ == "__main__":
