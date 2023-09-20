@@ -201,10 +201,19 @@ def display_statistics(data, jupyter=True):
     table.set_fontsize(12)
     table.scale(1, 1.5)
 
-    #table_visualization_path = "output/Table_Stats.png"
+    # stats_df.plot()
+    # table_visualization_path = "output/Table_Stats.png"
 
     if jupyter:
         print("Visualization of Diabetes Dataset")
+
+    if not jupyter:
+        print("Visualization of Diabetes Dataset")
+    #     plt.savefig(table_visualization_path)
+    #     full_report_path = r"output/full_report.md"
+    #     with open(full_report_path, "w", encoding="utf-8") as report:
+    #         report.write("\n![Visualization](Table_Stats.png)\n")
+
 
 
 if __name__ == "__main__":
