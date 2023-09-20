@@ -11,10 +11,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
       - name: install packages
         run: make install
       - name: deploy
@@ -22,7 +18,7 @@ jobs:
       - name: test
         run: make test
       - name: Run main script
-        run: python src/python_script.py
+        run: python src/lib.py
       - name: List files
         run: |
           pwd
