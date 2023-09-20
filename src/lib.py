@@ -201,13 +201,13 @@ def display_statistics(data, jupyter=True):
     table.scale(1, 1.5)
 
     plt.show()
-    table_visualization_path = "output/Table.png"
+    table_visualization_path = "output/Table_Stats.png"
 
     if not jupyter:
         plt.savefig(table_visualization_path)
         table_report_path = r"output/Table.md"
         with open(table_report_path, "w", encoding="utf-8") as report:
-            report.write("\n![Visualization](Table.png)\n")
+            report.write("\n![Visualization](Table_Stats.png)\n")
 
     if jupyter:
         print("Visualization of Diabetes Dataset")
