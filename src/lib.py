@@ -147,7 +147,7 @@ def visualize_dataset(data, jupyter: bool = False):
     plt.show()
     bar_visualization_path = "output/Barplots.png"
 
-     if not jupyter:
+    if not jupyter:
         plt.savefig(bar_visualization_path)
         barplot_report_path = r"output/Barplots.md"
         with open(barplot_report_path, "w", encoding="utf-8") as report:
