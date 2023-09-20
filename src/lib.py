@@ -196,7 +196,6 @@ def display_statistics(data, jupyter=True):
     table.scale(1, 1.5)
 
     stats_df.plot()
-    plt.show()
     table_visualization_path = "output/Table_Stats.png"
 
     if not jupyter:
