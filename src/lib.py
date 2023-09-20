@@ -103,9 +103,10 @@ def visualize_dataset(data, jupyter: bool = False):
 
     if not jupyter:
         plt.savefig(count_visualization_path)
-        countplot_report_path = r"output/CountPlot.md"
-        with open(countplot_report_path, "w", encoding="utf-8") as report:
+        full_report_path = r"output/full_report.md"
+        with open(full_report_path, "w", encoding="utf-8") as report:
             report.write("\n![Visualization](Countplot.png)\n")
+
 
     # Data for the first plot
     categories1 = removed_NaN_data["Glucose"]
@@ -149,9 +150,9 @@ def visualize_dataset(data, jupyter: bool = False):
 
     if not jupyter:
         plt.savefig(bar_visualization_path)
-        barplot_report_path = r"output/Barplots.md"
-        with open(barplot_report_path, "w", encoding="utf-8") as report:
-            report.write("\n![Visualization](Barplots.png)\n")
+        full_report_path = r"output/full_report.md"
+        with open(full_report_path, "w", encoding="utf-8") as report:
+            report.write("\n![Bar_Visualization](Barplots.png)\n")
 
 
 def display_statistics(data, jupyter=True):
@@ -200,14 +201,15 @@ def display_statistics(data, jupyter=True):
     table.set_fontsize(12)
     table.scale(1, 1.5)
 
+    stats_df.plot()
     plt.show()
     table_visualization_path = "output/Table_Stats.png"
 
     if not jupyter:
         plt.savefig(table_visualization_path)
-        table_report_path = r"output/Table.md"
-        with open(table_report_path, "w", encoding="utf-8") as report:
-            report.write("\n![Visualization](Table_Stats.png)\n")
+        full_report_path = r"output/full_report.md"
+        with open(full_report_path, "w", encoding="utf-8") as report:
+            report.write("\n![table_Visualization](Table_Stats.png)\n")
 
     if jupyter:
         print("Visualization of Diabetes Dataset")
