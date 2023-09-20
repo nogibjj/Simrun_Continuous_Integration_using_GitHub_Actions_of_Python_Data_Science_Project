@@ -12,7 +12,7 @@ fastapi==0.85.0
 uvicorn==0.18.3
 #datascience
 jupyter==1.0.0
-pandas==1.5.0
+pandas==1.4.1
 numpy==1.23.3
 scikit-learn==1.1.2
 matplotlib==3.6.0
