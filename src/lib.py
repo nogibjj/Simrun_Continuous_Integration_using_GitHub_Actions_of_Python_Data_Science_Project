@@ -144,9 +144,7 @@ def visualize_dataset(data, jupyter: bool = False):
     # Adjust layout to prevent overlapping
     plt.tight_layout()
 
-    # Display the plots
-    plt.show()
-    bar_visualization_path = "output/Barplots.png"
+
     
 
     if not jupyter:
