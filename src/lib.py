@@ -97,13 +97,13 @@ def visualize_dataset(data, jupyter: bool = False):
     plt.xlabel("data type count of diabetes predictors")
     plt.ylabel("data types of diabetes predictors")
     plt.title("Count Plot of Diabetes Predictors Data Types")
-    
     plt.show()
     
 
     if not jupyter:
         count_visualization_path = "output/Count.png"
         plt.savefig(count_visualization_path)
+        #saving to repo
 
 
     # Data for the first plot
