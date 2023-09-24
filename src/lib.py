@@ -203,7 +203,7 @@ def display_statistics(data, jupyter=True):
     table.set_fontsize(12)
     table.scale(1, 1.5)
     plt.show()
-    # plt.close()
+    plt.close()
     # stats_df.plot()
     # table_visualization_path = "output/Table_Stats.png"
 
