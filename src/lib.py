@@ -1,8 +1,10 @@
+"""
+    Tthe following are important modules for this python file
+"""
 import pandas as pd
 import numpy as np
 import seaborn as sns
 import matplotlib.pyplot as plt
-
 
 def maximum(data, column):
     """
@@ -209,7 +211,7 @@ def display_statistics(data, jupyter=True):
         print("Visualization of Diabetes Dataset")
 
     if not jupyter:
-        print("Visualization of Diabetes Dataset")
+        print("Visualizing the Diabetes Dataset")
     #     plt.savefig(table_visualization_path)
     #     full_report_path = r"output/full_report.md"
     #     with open(full_report_path, "w", encoding="utf-8") as report:
